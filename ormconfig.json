@@ -1,0 +1,13 @@
+{
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "postgres",
+    "database": "db_monitoria_sd_api_2023",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+        "src/app/models/*.ts"
+    ]
+}
