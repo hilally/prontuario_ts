@@ -32,35 +32,15 @@ class ProfissionalController{
         return res.json(lista);  
         }
 
-    //metodos para insercao, alteracao e remocao
-    async store(req: Request, res: Response){ //cria um repositorio apartir do enedereco, executa e devolve 
-
-        const repository = getRepository(Profissional);//recupera o repositorio de Endereço
-
-        const {cpf} = req.body;
-        if(!cpf){ // a exclamacao inverte os valores do id
-
-            const end = repository.create(req.body); // se não for informado o id ele cria um novo
+        async store(req: Request, res: Response){ //cria um repositorio apartir do enedereco, executa e devolve 
+            const repository = getRepository(Profissional);//recupera o repositorio
+            console.log(req.body);
+            const end = repository.create(req.body);
             await repository.save(end);
             return res.json(end);
-
-        }else{
-            const Vid = await repository.findOne({where : {"cpf" : cpf }}); //testa se o id existe
-            if(Vid){
-    
-                const end = repository.create(req.body); //se existir o id cadastrado ele altera
-                await repository.save(end);
-                return res.json(end);
-                
-                
-            }else{ // se for informar o id e não existir no banco não faz nada
-    
-                return res.sendStatus(404); // não encontrado para alterar
+            
             }
-    
-        }
-    }
-    
+            
     async delete(req: Request, res: Response){
         try{
             const repository = getRepository(Profissional);

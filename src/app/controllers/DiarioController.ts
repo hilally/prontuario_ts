@@ -37,6 +37,22 @@ class DiarioController {
             return res.sendStatus(500);
         }
 
+
+        }
+
+        async update(req: Request, res: Response){
+            const repository = getRepository(Diario);//recupera o repositorio do Atividades.
+            const {id} = req.body;//extrai os atributos id do corpo da mensagem
+            const idExists = await repository.findOne({where :{id}});//consulta na tabela se existe um registro com o mesmo id.
+            if(!idExists){
+                return res.sendStatus(404);
+            }
+            
+            const j = repository.create(req.body); //cria a entidade Atividades
+            
+            await repository.save(j); //persiste (update) a entidade na tabela.
+            
+            return res.json(j);
         }
 }
 

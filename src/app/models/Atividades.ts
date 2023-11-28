@@ -16,7 +16,7 @@ class Atividade {
     academica: string;
 
     //associacao
-    @ManyToOne(() => Diario, diario => diario.atividades)
+    @ManyToOne(() => Diario, diario => diario.atividades, { onDelete: 'CASCADE' })
     diario: Diario;
 
 }

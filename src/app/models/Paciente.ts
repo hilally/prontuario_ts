@@ -8,7 +8,7 @@ import Diario from './Diario';
         medicacao: string;
 
         @Column('text')
-        objetivo: string;
+        profissao: string;
 
         //agregacao
         @ManyToOne(() => Profissional)
