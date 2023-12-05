@@ -15,6 +15,9 @@ class Atividade {
     @Column("varchar")
     academica: string;
 
+    @Column("varchar")
+    social: string;
+
     //associacao
     @ManyToOne(() => Diario, diario => diario.atividades, { onDelete: 'CASCADE' })
     diario: Diario;

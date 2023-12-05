@@ -23,7 +23,7 @@ router.get('/paciente/list', PacienteController.list);
 router.post('/paciente/store', PacienteController.store);
 router.delete('/paciente/delete', PacienteController.delete);
 router.put('/paciente/update', PacienteController.update);
-router.post('/paciente/login', PacienteController.login);
+router.post('/loginpaciente', PacienteController.login);
 router.get('/paciente/: cpf', PacienteController.find); 
 
 router.get('/profissional/list', ProfissionalController.list);
